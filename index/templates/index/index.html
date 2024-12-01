@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+            <div >
+                <h3>Add Wave</h3>
+                <a href="/auth/logout/">Logout</a>
+            </div>
+            
+            <hr>
+             {% if messages %}
+            <div class="alert alert-primary" role="alert">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            
+            <div class="form-group">
+                <h5>Upload Products</h5>
+                <p>Upload a file with the products your bussiness offer</p>
+            </div>
+            
+            <a href="{% url "upload_data" %}">
+                <button class="btn btn-primary">Upload products</button>
+            </a>
+            <hr>
+
+
+            <div class="form-group">
+                <h5>Upload Sales</h5>
+                <p>Upload a file with your Sales!</p>
+            </div>
+            
+            <a href="{% url "upload_sales" %}">
+                <button class="btn btn-primary">Upload Sales</button>
+            </a>
+            <hr>
+
+            
+            
+            <div class="form-group">
+                <h5>send ads</h5>
+                <p>Send emails to your customers with adds based on thair brevious behaviour!</p>
+            </div>
+
+            <a href="{% url "send_emails" %}">
+                <button class="btn btn-primary">Send emails</button>
+            </a>
+            
+            <hr>
+ 
+    </div>
+</body>
+</html>

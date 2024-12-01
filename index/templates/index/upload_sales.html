@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Sales data</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data"> 
+            {% csrf_token %}  <!-- CSRF token for security -->
+            <a href="/">Home</a>
+            <br>
+            <h3>Upload sales data</h3>
+            <hr>
+ 
+            {% if messages %}
+            <div class="alert alert-primary" role="alert">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <div class="form-group">
+                <ul>
+                    <li>Upload a .csv file that contains all the data!</li>
+                    <li>Make sure the file contains an email attribute that identifies the email of the customer of the cart!</li>
+                    <li>Make sure the file contains a cart attribute!</li>
+                    <li>Each cart column should contain all the product names in the cart separated by ','</li>
+                </ul>
+                <input type="file"  name="file"  required>
+                
+                <br>
+            </div>
+ 
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
